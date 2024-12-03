@@ -29,13 +29,13 @@ namespace WindowsFormsApp1
             var hintsCount = 0;
 
             if (easyLevel.Checked)
-                hintsCount = 45;
+                hintsCount = 65;
 
             else if (mediumLevel.Checked)
-                hintsCount = 30;
+                hintsCount = 55;
 
             else if (hardLevel.Checked)
-                hintsCount = 15;
+                hintsCount = 35;
 
             //Show values of 45 cells as hints
             showRandomValueHints(hintsCount);
@@ -153,7 +153,7 @@ namespace WindowsFormsApp1
                     cells[i, j] = new SudokuCell();
                     cells[i, j].Font = new Font(SystemFonts.DefaultFont.FontFamily, 20);
                     cells[i, j].Size = new Size(40, 40);
-                    cells[i, j].ForeColor = SystemColors.ControlDarkDark;
+                    cells[i, j].ForeColor = SystemColors.ControlDark;
                     cells[i, j].Location = new Point(i * 40, j * 40);
                     cells[i, j].BackColor = ((i / 3) + (j / 3)) % 2 == 0 ? SystemColors.Control : Color.LightGray;
                     cells[i, j].FlatStyle = FlatStyle.Flat;
@@ -162,6 +162,8 @@ namespace WindowsFormsApp1
                     cells[i, j].Y = j;
 
                     //Key Press event assigned for each cell
+                    cells[i, j].Enter += cell_Enter;
+
                     cells[i, j].KeyPress += cell_keyPressed;
 
                     panel1.Controls.Add(cells[i, j]);
@@ -169,7 +171,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void cell_keyPressed(object sender, KeyPressEventArgs e)
+        public void cell_keyPressed(object sender, KeyPressEventArgs e)
         {
             var cell = sender as SudokuCell;
 
@@ -184,12 +186,85 @@ namespace WindowsFormsApp1
             {
                 //clear the cell value if the key pressed is "0"
                 if (value == 0)
+                {
                     cell.Clear();
+                    cell.ForeColor = SystemColors.ControlDark;
+                }
                 else
+                {
                     cell.Text = value.ToString();
-
-                cell.ForeColor = SystemColors.ControlDarkDark;
+                    cell.ForeColor = System.Drawing.Color.MediumBlue;
+                    cell.IsUserInput = true;
+                }
             }
+        }
+
+        private SudokuCell selectedCell;
+
+        private void cell_Enter(object sender, EventArgs e)
+        {
+            // Clear highlights
+            clearHighlights();
+
+            //Get the selected cell
+            selectedCell = sender as SudokuCell;
+
+            if (selectedCell == null) return;
+
+            //Highlight the row and column
+
+            highlightRowAndColumn(selectedCell.X, selectedCell.Y);
+
+            //Highlight cells with same value
+
+            if (!string.IsNullOrEmpty(selectedCell.Text))
+            {
+                highlightSameValueCells(selectedCell.Text);
+            }
+        }
+
+        private void highlightRowAndColumn(int x, int y)
+        {
+            for (int i = 0; i < 9; i++)
+            {
+                //Highlight the row
+                cells[x, i].BackColor = SystemColors.AppWorkspace;
+
+                //Highlight the column
+                cells[i, y].BackColor = SystemColors.AppWorkspace;
+            }
+        }
+
+        private void highlightSameValueCells(string value)
+        {
+            foreach (var cell in cells)
+            {
+                if (cell.Text == value && !string.IsNullOrEmpty(value))
+                {
+                    cell.BackColor = SystemColors.WindowFrame;
+                    cell.Font = new Font(SystemFonts.DefaultFont.FontFamily, 20, FontStyle.Bold);
+                    cell.ForeColor = SystemColors.HighlightText;
+                }
+            }
+        }
+
+        private void clearHighlights()
+        {
+            foreach (var cell in cells)
+                if (cell.IsUserInput == true)
+                {
+                    cell.BackColor = ((cell.X / 3) + (cell.Y / 3)) % 2 == 0 ? SystemColors.Control
+                        : Color.LightGray;
+                    cell.Font = new Font(SystemFonts.DefaultFont.FontFamily, 20);
+                    cell.ForeColor = System.Drawing.Color.MediumBlue;
+                }
+                else
+                {
+                    cell.BackColor = ((cell.X / 3) + (cell.Y / 3)) % 2 == 0 ? SystemColors.Control
+                        : Color.LightGray;
+                    cell.Font = new Font(SystemFonts.DefaultFont.FontFamily, 20);
+                    cell.ForeColor = SystemColors.InfoText;
+                }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -220,7 +295,10 @@ namespace WindowsFormsApp1
             foreach (var cell in cells)
             {
                 if(cell.IsLocked == false)
+                {
                     cell.Clear();
+                    cell.ForeColor = SystemColors.ControlDarkDark;
+                }
             }
         }
 
@@ -228,6 +306,7 @@ namespace WindowsFormsApp1
         {
             startNewGame();
         }
+
     }
 }
 
