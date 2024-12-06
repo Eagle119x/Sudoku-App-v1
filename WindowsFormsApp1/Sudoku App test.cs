@@ -90,7 +90,7 @@ namespace WindowsFormsApp1
             }
 
             var value = 0;
-            var numsLeft= new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            var numsLeft = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
             //find a valid and random number for the cell and move to the next cell
             //and check if it can be allocated with another random number
@@ -184,18 +184,17 @@ namespace WindowsFormsApp1
             //Add the pressed key value in the cell only if it is a number
             if (int.TryParse(e.KeyChar.ToString(), out value))
             {
-                //clear the cell value if the key pressed is "0"
-                if (value == 0)
-                {
-                    cell.Clear();
-                    cell.ForeColor = SystemColors.ControlDark;
-                }
-                else
-                {
-                    cell.Text = value.ToString();
-                    cell.ForeColor = System.Drawing.Color.MediumBlue;
-                    cell.IsUserInput = true;
-                }
+                cell.Text = value.ToString();
+                cell.ForeColor = System.Drawing.Color.MediumBlue;
+                cell.IsUserInput = true;
+
+                //Check if game is completed
+                endGameMechanic();
+            }
+            else if (value == 0)
+            {
+                cell.Clear();
+                cell.ForeColor = SystemColors.ControlDark;
             }
         }
 
@@ -267,13 +266,19 @@ namespace WindowsFormsApp1
                 }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
         {
             var wrongCells = new List<SudokuCell>();
+            var userInputCells = new List <SudokuCell> ();
 
             foreach (var cell in cells)
             {
-                if (!string.Equals(cell.Value.ToString(), cell.Text))
+                if (cell.IsUserInput)
+                {
+                    userInputCells.Add(cell);
+                }
+
+                if (!string.Equals(cell.Value.ToString(), cell.Text) && cell.IsUserInput)
                 {
                     wrongCells.Add(cell);
                 }
@@ -284,9 +289,41 @@ namespace WindowsFormsApp1
                 wrongCells.ForEach(x => x.ForeColor = Color.Red);
                 MessageBox.Show("Incorrect numbers");
             }
-            else
+            else if (userInputCells.Any())
             {
-                MessageBox.Show("Congratulations!");
+                MessageBox.Show($"No wrong numbers and you have {CellsRemaining()} cells remaining!");
+            }
+        }
+
+        private bool IsGameEnd()
+        {
+            foreach (var cell in cells)
+            {
+                if (string.IsNullOrEmpty(cell.Text))
+                
+                    return false;
+
+                if (!string.Equals(cell.Value.ToString(), cell.Text))
+                
+                    return false;
+            }
+
+            return true;
+        }
+
+        public void endGameMechanic()
+
+        {
+            if (CountFilledCells() == 81)
+            {
+                if (IsGameEnd())
+                {
+                    MessageBox.Show("Congratulations!");
+                }
+                else
+                {
+                    MessageBox.Show("Some cells are incorrect, please use the 'Check Input' button for assistance");
+                }
             }
         }
 
@@ -300,6 +337,32 @@ namespace WindowsFormsApp1
                     cell.ForeColor = SystemColors.ControlDarkDark;
                 }
             }
+        }
+
+        public int CountFilledCells()
+        {
+            int filledCount = 0;
+
+            foreach (var cell in cells)
+            {
+                if (!string.IsNullOrEmpty(cell.Text))
+                {
+                    filledCount++;
+                }
+
+            }
+
+            return filledCount;
+        }
+
+        public int CellsRemaining()
+
+        {
+           {
+                int count = 81 - CountFilledCells();
+                return count;
+           }
+     
         }
 
         private void newGameButton_Click(object sender, EventArgs e)

@@ -55,11 +55,12 @@ namespace WindowsFormsApp1
             this.mediumLevel = new System.Windows.Forms.RadioButton();
             this.hardLevel = new System.Windows.Forms.RadioButton();
             this.newGameButton = new System.Windows.Forms.Button();
+            this.numberPanel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(14, 15);
+            this.panel1.Location = new System.Drawing.Point(13, 13);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(387, 370);
@@ -72,10 +73,10 @@ namespace WindowsFormsApp1
             this.checkButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkButton.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.checkButton.Location = new System.Drawing.Point(432, 15);
+            this.checkButton.Location = new System.Drawing.Point(408, 13);
             this.checkButton.Margin = new System.Windows.Forms.Padding(4);
             this.checkButton.Name = "checkButton";
-            this.checkButton.Size = new System.Drawing.Size(323, 70);
+            this.checkButton.Size = new System.Drawing.Size(325, 70);
             this.checkButton.TabIndex = 1;
             this.checkButton.Text = "Check Input";
             this.checkButton.UseVisualStyleBackColor = false;
@@ -88,10 +89,10 @@ namespace WindowsFormsApp1
             this.clearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clearButton.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clearButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.clearButton.Location = new System.Drawing.Point(432, 104);
+            this.clearButton.Location = new System.Drawing.Point(408, 91);
             this.clearButton.Margin = new System.Windows.Forms.Padding(4);
             this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(323, 71);
+            this.clearButton.Size = new System.Drawing.Size(325, 71);
             this.clearButton.TabIndex = 2;
             this.clearButton.Text = "Clear Input";
             this.clearButton.UseVisualStyleBackColor = false;
@@ -101,7 +102,7 @@ namespace WindowsFormsApp1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(425, 265);
+            this.label1.Location = new System.Drawing.Point(408, 215);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(105, 28);
@@ -112,7 +113,7 @@ namespace WindowsFormsApp1
             // 
             this.easyLevel.AutoSize = true;
             this.easyLevel.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.easyLevel.Location = new System.Drawing.Point(430, 303);
+            this.easyLevel.Location = new System.Drawing.Point(413, 253);
             this.easyLevel.Margin = new System.Windows.Forms.Padding(4);
             this.easyLevel.Name = "easyLevel";
             this.easyLevel.Size = new System.Drawing.Size(54, 22);
@@ -125,7 +126,7 @@ namespace WindowsFormsApp1
             // 
             this.mediumLevel.AutoSize = true;
             this.mediumLevel.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mediumLevel.Location = new System.Drawing.Point(430, 333);
+            this.mediumLevel.Location = new System.Drawing.Point(413, 283);
             this.mediumLevel.Margin = new System.Windows.Forms.Padding(4);
             this.mediumLevel.Name = "mediumLevel";
             this.mediumLevel.Size = new System.Drawing.Size(76, 22);
@@ -138,7 +139,7 @@ namespace WindowsFormsApp1
             // 
             this.hardLevel.AutoSize = true;
             this.hardLevel.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hardLevel.Location = new System.Drawing.Point(430, 363);
+            this.hardLevel.Location = new System.Drawing.Point(413, 313);
             this.hardLevel.Margin = new System.Windows.Forms.Padding(4);
             this.hardLevel.Name = "hardLevel";
             this.hardLevel.Size = new System.Drawing.Size(57, 22);
@@ -154,7 +155,7 @@ namespace WindowsFormsApp1
             this.newGameButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.newGameButton.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newGameButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.newGameButton.Location = new System.Drawing.Point(540, 265);
+            this.newGameButton.Location = new System.Drawing.Point(518, 215);
             this.newGameButton.Margin = new System.Windows.Forms.Padding(4);
             this.newGameButton.Name = "newGameButton";
             this.newGameButton.Size = new System.Drawing.Size(215, 120);
@@ -163,12 +164,20 @@ namespace WindowsFormsApp1
             this.newGameButton.UseVisualStyleBackColor = false;
             this.newGameButton.Click += new System.EventHandler(this.newGameButton_Click);
             // 
+            // numberPanel1
+            // 
+            this.numberPanel1.Location = new System.Drawing.Point(409, 169);
+            this.numberPanel1.Name = "numberPanel1";
+            this.numberPanel1.Size = new System.Drawing.Size(324, 36);
+            this.numberPanel1.TabIndex = 7;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.ClientSize = new System.Drawing.Size(768, 402);
+            this.ClientSize = new System.Drawing.Size(744, 402);
+            this.Controls.Add(this.numberPanel1);
             this.Controls.Add(this.hardLevel);
             this.Controls.Add(this.newGameButton);
             this.Controls.Add(this.mediumLevel);
@@ -200,6 +209,7 @@ namespace WindowsFormsApp1
         private RadioButton hardLevel;
         private RadioButton mediumLevel;
         private Button newGameButton;
+        private Panel numberPanel1;
     }
 }
 
