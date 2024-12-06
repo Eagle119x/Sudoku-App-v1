@@ -56,6 +56,16 @@ namespace WindowsFormsApp1
             this.hardLevel = new System.Windows.Forms.RadioButton();
             this.newGameButton = new System.Windows.Forms.Button();
             this.numberPanel1 = new System.Windows.Forms.Panel();
+            this.panelbutton1 = new System.Windows.Forms.Button();
+            this.panelbutton2 = new System.Windows.Forms.Button();
+            this.panelbutton3 = new System.Windows.Forms.Button();
+            this.panelbutton4 = new System.Windows.Forms.Button();
+            this.panelbutton5 = new System.Windows.Forms.Button();
+            this.panelbutton6 = new System.Windows.Forms.Button();
+            this.panelbutton7 = new System.Windows.Forms.Button();
+            this.panelbutton8 = new System.Windows.Forms.Button();
+            this.panelbutton9 = new System.Windows.Forms.Button();
+            this.numberPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -166,10 +176,136 @@ namespace WindowsFormsApp1
             // 
             // numberPanel1
             // 
-            this.numberPanel1.Location = new System.Drawing.Point(409, 169);
+            this.numberPanel1.Controls.Add(this.panelbutton9);
+            this.numberPanel1.Controls.Add(this.panelbutton8);
+            this.numberPanel1.Controls.Add(this.panelbutton7);
+            this.numberPanel1.Controls.Add(this.panelbutton6);
+            this.numberPanel1.Controls.Add(this.panelbutton5);
+            this.numberPanel1.Controls.Add(this.panelbutton4);
+            this.numberPanel1.Controls.Add(this.panelbutton3);
+            this.numberPanel1.Controls.Add(this.panelbutton2);
+            this.numberPanel1.Controls.Add(this.panelbutton1);
+            this.numberPanel1.Location = new System.Drawing.Point(408, 169);
             this.numberPanel1.Name = "numberPanel1";
-            this.numberPanel1.Size = new System.Drawing.Size(324, 36);
+            this.numberPanel1.Size = new System.Drawing.Size(325, 36);
             this.numberPanel1.TabIndex = 7;
+            // 
+            // panelbutton1
+            // 
+            this.panelbutton1.FlatAppearance.BorderSize = 0;
+            this.panelbutton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.panelbutton1.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold);
+            this.panelbutton1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelbutton1.Location = new System.Drawing.Point(5, 3);
+            this.panelbutton1.Name = "panelbutton1";
+            this.panelbutton1.Size = new System.Drawing.Size(30, 30);
+            this.panelbutton1.TabIndex = 0;
+            this.panelbutton1.Text = "1";
+            this.panelbutton1.UseVisualStyleBackColor = false;
+            // 
+            // panelbutton2
+            // 
+            this.panelbutton2.FlatAppearance.BorderSize = 0;
+            this.panelbutton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.panelbutton2.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold);
+            this.panelbutton2.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelbutton2.Location = new System.Drawing.Point(40, 3);
+            this.panelbutton2.Name = "panelbutton2";
+            this.panelbutton2.Size = new System.Drawing.Size(30, 30);
+            this.panelbutton2.TabIndex = 1;
+            this.panelbutton2.Text = "2";
+            this.panelbutton2.UseVisualStyleBackColor = false;
+            // 
+            // panelbutton3
+            // 
+            this.panelbutton3.FlatAppearance.BorderSize = 0;
+            this.panelbutton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.panelbutton3.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold);
+            this.panelbutton3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelbutton3.Location = new System.Drawing.Point(76, 3);
+            this.panelbutton3.Name = "panelbutton3";
+            this.panelbutton3.Size = new System.Drawing.Size(30, 30);
+            this.panelbutton3.TabIndex = 1;
+            this.panelbutton3.Text = "3";
+            this.panelbutton3.UseVisualStyleBackColor = false;
+            // 
+            // panelbutton4
+            // 
+            this.panelbutton4.FlatAppearance.BorderSize = 0;
+            this.panelbutton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.panelbutton4.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold);
+            this.panelbutton4.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelbutton4.Location = new System.Drawing.Point(112, 3);
+            this.panelbutton4.Name = "panelbutton4";
+            this.panelbutton4.Size = new System.Drawing.Size(30, 30);
+            this.panelbutton4.TabIndex = 1;
+            this.panelbutton4.Text = "4";
+            this.panelbutton4.UseVisualStyleBackColor = false;
+            // 
+            // panelbutton5
+            // 
+            this.panelbutton5.FlatAppearance.BorderSize = 0;
+            this.panelbutton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.panelbutton5.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold);
+            this.panelbutton5.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelbutton5.Location = new System.Drawing.Point(148, 3);
+            this.panelbutton5.Name = "panelbutton5";
+            this.panelbutton5.Size = new System.Drawing.Size(30, 30);
+            this.panelbutton5.TabIndex = 1;
+            this.panelbutton5.Text = "5";
+            this.panelbutton5.UseVisualStyleBackColor = false;
+            // 
+            // panelbutton6
+            // 
+            this.panelbutton6.FlatAppearance.BorderSize = 0;
+            this.panelbutton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.panelbutton6.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold);
+            this.panelbutton6.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelbutton6.Location = new System.Drawing.Point(184, 3);
+            this.panelbutton6.Name = "panelbutton6";
+            this.panelbutton6.Size = new System.Drawing.Size(30, 30);
+            this.panelbutton6.TabIndex = 1;
+            this.panelbutton6.Text = "6";
+            this.panelbutton6.UseVisualStyleBackColor = false;
+            // 
+            // panelbutton7
+            // 
+            this.panelbutton7.FlatAppearance.BorderSize = 0;
+            this.panelbutton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.panelbutton7.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold);
+            this.panelbutton7.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelbutton7.Location = new System.Drawing.Point(220, 3);
+            this.panelbutton7.Name = "panelbutton7";
+            this.panelbutton7.Size = new System.Drawing.Size(30, 30);
+            this.panelbutton7.TabIndex = 1;
+            this.panelbutton7.Text = "7";
+            this.panelbutton7.UseVisualStyleBackColor = false;
+            // 
+            // panelbutton8
+            // 
+            this.panelbutton8.FlatAppearance.BorderSize = 0;
+            this.panelbutton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.panelbutton8.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold);
+            this.panelbutton8.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelbutton8.Location = new System.Drawing.Point(256, 3);
+            this.panelbutton8.Name = "panelbutton8";
+            this.panelbutton8.Size = new System.Drawing.Size(30, 30);
+            this.panelbutton8.TabIndex = 1;
+            this.panelbutton8.Text = "8";
+            this.panelbutton8.UseVisualStyleBackColor = false;
+            // 
+            // panelbutton9
+            // 
+            this.panelbutton9.FlatAppearance.BorderSize = 0;
+            this.panelbutton9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.panelbutton9.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold);
+            this.panelbutton9.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelbutton9.Location = new System.Drawing.Point(292, 3);
+            this.panelbutton9.Name = "panelbutton9";
+            this.panelbutton9.Size = new System.Drawing.Size(30, 30);
+            this.panelbutton9.TabIndex = 1;
+            this.panelbutton9.Text = "9";
+            this.panelbutton9.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
@@ -194,6 +330,7 @@ namespace WindowsFormsApp1
             this.Name = "Form1";
             this.ShowIcon = false;
             this.Text = "Sudoku";
+            this.numberPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -210,6 +347,15 @@ namespace WindowsFormsApp1
         private RadioButton mediumLevel;
         private Button newGameButton;
         private Panel numberPanel1;
+        private Button panelbutton1;
+        private Button panelbutton9;
+        private Button panelbutton8;
+        private Button panelbutton7;
+        private Button panelbutton6;
+        private Button panelbutton5;
+        private Button panelbutton4;
+        private Button panelbutton3;
+        private Button panelbutton2;
     }
 }
 

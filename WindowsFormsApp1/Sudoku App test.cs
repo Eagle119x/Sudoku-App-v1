@@ -16,6 +16,7 @@ namespace WindowsFormsApp1
         public Form1()
         {
             InitializeComponent();
+            InitializeRemainingNumbers();
 
             createCells();
 
@@ -184,9 +185,26 @@ namespace WindowsFormsApp1
             //Add the pressed key value in the cell only if it is a number
             if (int.TryParse(e.KeyChar.ToString(), out value))
             {
+                if (value == 0 && !string.IsNullOrEmpty(cell.Text))
+                {
+                    int oldValue = int.Parse(cell.Text);
+                    remainingNumbers[oldValue - 1]++;
+                }
+                else if (value > 0 && value <= 9)
+                {
+                    if (!string.IsNullOrEmpty(cell.Text))
+                    {
+                        int oldValue = int.Parse(cell.Text);
+                        remainingNumbers[oldValue + 1]++;
+                    }
+                    remainingNumbers[value - 1]--;
+                }
+
                 cell.Text = value.ToString();
                 cell.ForeColor = System.Drawing.Color.MediumBlue;
                 cell.IsUserInput = true;
+
+                UpdateNumberPanel();
 
                 //Check if game is completed
                 endGameMechanic();
@@ -196,6 +214,26 @@ namespace WindowsFormsApp1
                 cell.Clear();
                 cell.ForeColor = SystemColors.ControlDark;
             }
+        }
+
+        private void UpdateNumberPanel()
+        {
+            foreach (Button btn in numberPanel1.Controls)
+            {
+                int num = (int)btn.Tag;
+
+                btn.Enabled = remainingNumbers[num - 1] > 0;
+                btn.Visible = remainingNumbers[num - 1] > 0;
+            }
+        }
+
+        //New array for calculating which numbers are used up and which have some left
+        int[] remainingNumbers = new int[9];
+
+        private void InitializeRemainingNumbers()
+        {
+            for (int i = 0; i < 9; i++)
+                remainingNumbers[i] = 9;
         }
 
         private SudokuCell selectedCell;
@@ -226,11 +264,13 @@ namespace WindowsFormsApp1
         {
             for (int i = 0; i < 9; i++)
             {
-                //Highlight the row
-                cells[x, i].BackColor = SystemColors.AppWorkspace;
-
                 //Highlight the column
-                cells[i, y].BackColor = SystemColors.AppWorkspace;
+                cells[x, i].BackColor = System.Drawing.Color.LightSteelBlue;
+              
+
+                //Highlight the row
+                cells[i, y].BackColor = System.Drawing.Color.LightSteelBlue;
+
             }
         }
 
@@ -240,9 +280,8 @@ namespace WindowsFormsApp1
             {
                 if (cell.Text == value && !string.IsNullOrEmpty(value))
                 {
-                    cell.BackColor = SystemColors.WindowFrame;
+                    cell.BackColor = SystemColors.AppWorkspace;
                     cell.Font = new Font(SystemFonts.DefaultFont.FontFamily, 20, FontStyle.Bold);
-                    cell.ForeColor = SystemColors.HighlightText;
                 }
             }
         }
@@ -256,6 +295,7 @@ namespace WindowsFormsApp1
                         : Color.LightGray;
                     cell.Font = new Font(SystemFonts.DefaultFont.FontFamily, 20);
                     cell.ForeColor = System.Drawing.Color.MediumBlue;
+                    cell.FlatAppearance.BorderSize = 1;
                 }
                 else
                 {
@@ -263,6 +303,7 @@ namespace WindowsFormsApp1
                         : Color.LightGray;
                     cell.Font = new Font(SystemFonts.DefaultFont.FontFamily, 20);
                     cell.ForeColor = SystemColors.InfoText;
+                    cell.FlatAppearance.BorderSize = 1;
                 }
         }
 
