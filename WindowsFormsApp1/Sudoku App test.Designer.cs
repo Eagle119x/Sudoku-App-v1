@@ -131,6 +131,7 @@ namespace WindowsFormsApp1
             this.easyLevel.TabStop = true;
             this.easyLevel.Text = "Easy";
             this.easyLevel.UseVisualStyleBackColor = true;
+            this.easyLevel.Checked = true;
             // 
             // mediumLevel
             // 

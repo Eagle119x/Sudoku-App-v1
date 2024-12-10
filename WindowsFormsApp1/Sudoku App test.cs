@@ -13,6 +13,14 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
+        private SudokuCell selectedCell;
+        Random randomHint = new Random();
+        Random random = new Random();
+        SudokuCell[,] cells = new SudokuCell[9, 9];
+
+        //New array for calculating which numbers are used up and which have some left
+        int[] remainingNumbers = new int[9];
+
         public Form1()
         {
             InitializeComponent();
@@ -30,19 +38,21 @@ namespace WindowsFormsApp1
             var hintsCount = 0;
 
             if (easyLevel.Checked)
+            {
                 hintsCount = 65;
-
+            }
             else if (mediumLevel.Checked)
+            {
                 hintsCount = 55;
-
-            else if (hardLevel.Checked)
+            }
+            else 
+            { 
                 hintsCount = 35;
+            }
 
             //Show values of 45 cells as hints
             showRandomValueHints(hintsCount);
         }
-
-        Random randomHint = new Random();
 
         private void showRandomValueHints(int hintsCount)
         {
@@ -76,7 +86,7 @@ namespace WindowsFormsApp1
             findValueForNextCell(0, -1);
         }
 
-        Random random = new Random();
+
 
         private bool findValueForNextCell(int i, int j)
         {
@@ -142,8 +152,6 @@ namespace WindowsFormsApp1
             return true;
         }
 
-        SudokuCell[,] cells = new SudokuCell[9, 9];
-
         private void createCells()
         {
             for (int i = 0; i < 9; i++)
@@ -175,12 +183,13 @@ namespace WindowsFormsApp1
         public void cell_keyPressed(object sender, KeyPressEventArgs e)
         {
             var cell = sender as SudokuCell;
+            int value;
 
             //do nothing if the cell is locked
             if (cell.IsLocked)
+            {
                 return;
-
-            int value;
+            }
 
             //Add the pressed key value in the cell only if it is a number
             if (int.TryParse(e.KeyChar.ToString(), out value))
@@ -227,16 +236,13 @@ namespace WindowsFormsApp1
             }
         }
 
-        //New array for calculating which numbers are used up and which have some left
-        int[] remainingNumbers = new int[9];
-
         private void InitializeRemainingNumbers()
         {
             for (int i = 0; i < 9; i++)
+            {
                 remainingNumbers[i] = 9;
+            }
         }
-
-        private SudokuCell selectedCell;
 
         private void cell_Enter(object sender, EventArgs e)
         {
@@ -246,7 +252,10 @@ namespace WindowsFormsApp1
             //Get the selected cell
             selectedCell = sender as SudokuCell;
 
-            if (selectedCell == null) return;
+            if (selectedCell == null)
+            {
+                return;
+            }
 
             //Highlight the row and column
 
@@ -310,7 +319,7 @@ namespace WindowsFormsApp1
         public void button1_Click(object sender, EventArgs e)
         {
             var wrongCells = new List<SudokuCell>();
-            var userInputCells = new List <SudokuCell> ();
+            var userInputCells = new List<SudokuCell>();
 
             foreach (var cell in cells)
             {
@@ -341,12 +350,14 @@ namespace WindowsFormsApp1
             foreach (var cell in cells)
             {
                 if (string.IsNullOrEmpty(cell.Text))
-                
+                {
                     return false;
+                }
 
                 if (!string.Equals(cell.Value.ToString(), cell.Text))
-                
+                {
                     return false;
+                }
             }
 
             return true;
@@ -399,11 +410,8 @@ namespace WindowsFormsApp1
         public int CellsRemaining()
 
         {
-           {
-                int count = 81 - CountFilledCells();
-                return count;
-           }
-     
+            int count = 81 - CountFilledCells();
+            return count;
         }
 
         private void newGameButton_Click(object sender, EventArgs e)
